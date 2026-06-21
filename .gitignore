@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Granica GADM jest pobierana skryptem, nigdy nie commituj jej, licencja zabrania redystrybucji
+geo/gadm41_POL_2.json
