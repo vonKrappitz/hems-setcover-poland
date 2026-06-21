@@ -1,4 +1,6 @@
 import json, numpy as np, geopandas as gpd, pyproj, time
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
 from shapely.ops import unary_union
 from shapely import contains_xy
 from scipy.spatial import cKDTree
@@ -8,14 +10,14 @@ T_BUDGET,T_STARTUP,V=30,5,250
 R=((T_BUDGET-T_STARTUP)/60.0)*V*1000.0   # 104 km
 
 # --- land ---
-pol=gpd.read_file("/home/claude/geo/gadm41_POL_2.json").to_crs("EPSG:2180")
+pol=gpd.read_file(str(HERE / "geo" / "gadm41_POL_2.json")).to_crs("EPSG:2180")
 land=unary_union(pol.geometry).buffer(0)
 minx,miny,maxx,maxy=land.bounds
 tr=pyproj.Transformer.from_crs("EPSG:4326","EPSG:2180",always_xy=True)
 def xy(la,lo): return tr.transform(lo,la)
 
 # --- named solution (model coords) ---
-d=json.load(open("loc28.json")); f=lambda s:float(str(s).replace(',','.'))
+d=json.load(open(HERE / "loc28.json")); f=lambda s:float(str(s).replace(',','.'))
 CRL=[(r[1],f(r[8]),f(r[9])) for r in d if r[0]=="CRL"]                       # 7 fixed
 CT =[(r[1],f(r[8]),f(r[9])) for r in d if r[0]=="CT" and "Rzeszów" not in r[1]]  # 14 primary
 assert len(CRL)==7 and len(CT)==14, (len(CRL),len(CT))

@@ -40,8 +40,7 @@ python3 mip_curve.py            # -> curve.json (greedy vs MCLP optimum)
 python3 generate_fig2_optgap.py # -> Figure_2 (PDF + PNG)
 python3 generate_map_SEPS_EN.py # -> Figure_1 (PDF + PNG)
 ```
-Paths inside the scripts assume this folder; adjust the `/home/claude/...` paths to your
-local copy if needed (boundary and raster are under `geo/`).
+The scripts resolve every path relative to their own location, so they run from any working directory. The boundary and raster live under `geo/`, fetch the boundary first with `python3 fetch_gadm.py`.
 
 ## Expected results
 - Network of 21 primary bases: 99.95 per cent surface coverage, 99.99 per cent population
@@ -50,5 +49,5 @@ local copy if needed (boundary and raster are under `geo/`).
 - Sensitivity: 99.03 per cent surface coverage under the realistic scenario.
 
 ## Licence
-Code: Apache 2.0. Data: as per GADM and WorldPop terms. Coordinates (`loc28.json`): CC BY 4.0.
+Code under Apache 2.0, see LICENSE. The WorldPop raster (`geo/pl_pop_1km.tif`) is CC-BY 4.0 and is shipped here. The GADM boundary is not shipped, it is fetched by `fetch_gadm.py`, and the GADM licence allows academic map-making but not redistribution. Coordinates (`loc28.json`) are CC BY 4.0.
 The published version of record will be archived with a citable DOI (Zenodo).

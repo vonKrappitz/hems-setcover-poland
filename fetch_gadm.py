@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: Apache-2.0
 """Fetch the GADM v4.1 Poland level-2 administrative boundary.
 
 GADM data are free for academic and non-commercial use but may not be

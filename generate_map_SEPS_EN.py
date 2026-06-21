@@ -6,6 +6,8 @@ NO title or statistics panel on the figure (these go to the caption), Liberation
 (Arial-equivalent) embedded, vector PDF + PNG. Colourblind-safe.
 """
 import numpy as np
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
 import geopandas as gpd
 from shapely.geometry import Point, Polygon, MultiPolygon
 from shapely.ops import unary_union
@@ -45,7 +47,7 @@ LBL = {  # label offsets in points; 3rd item "right" => right-aligned (label sit
  "Lubomierz":(11,-6),"Zamość":(-9,2,"right"),"Bytów":(11,-8),
  "Kielce":(13,-8),"Biała Podlaska":(-11,2,"right")}
 
-poland = gpd.read_file("/home/claude/geo/gadm41_POL_2.json").to_crs("EPSG:2180")
+poland = gpd.read_file(str(HERE / "geo" / "gadm41_POL_2.json")).to_crs("EPSG:2180")
 voiv = (poland.dissolve(by="NAME_1") if "NAME_1" in poland.columns else poland).reset_index(drop=True)
 land = unary_union(voiv.geometry).buffer(0)
 def drop_holes(g):
@@ -163,8 +165,8 @@ for _i in range(len(_tx)):
 print("KOLIZJE:", "brak" if not _iss else "WYKRYTE")
 for i in sorted(set(_iss)): print("  -",i)
 
-pdf="/mnt/user-data/outputs/Figure1_HEMS_network_EN.pdf"
-png="/mnt/user-data/outputs/Figure1_HEMS_network_EN.png"
+pdf=str(HERE / "Figure1_HEMS_network_EN.pdf")
+png=str(HERE / "Figure1_HEMS_network_EN.png")
 plt.savefig(pdf,bbox_inches="tight",facecolor="white")
 plt.savefig(png,dpi=300,bbox_inches="tight",facecolor="white")
 plt.close()

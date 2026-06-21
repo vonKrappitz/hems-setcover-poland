@@ -1,8 +1,10 @@
 import json, matplotlib
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 plt.rcParams["font.family"]="Liberation Sans"; plt.rcParams["pdf.fonttype"]=42; plt.rcParams["ps.fonttype"]=42
-c=json.load(open("curve.json"))
+c=json.load(open(HERE / "curve.json"))
 g={int(k):v for k,v in c["gcurve"].items()}
 gx=sorted(g); gy=[g[k] for k in gx]
 mp=[r[0] for r in c["rows"]]; mv=[r[2] for r in c["rows"]]
@@ -24,8 +26,8 @@ ax.grid(True,axis="y",ls="-",lw=0.4,color="#E6E6E6",zorder=0)
 ax.tick_params(labelsize=9)
 for s in ["top","right"]: ax.spines[s].set_visible(False)
 ax.legend(loc="lower right",fontsize=9,framealpha=1,edgecolor="#999999")
-pdf="/mnt/user-data/outputs/Figure2_optimality_gap_EN.pdf"
-png="/mnt/user-data/outputs/Figure2_optimality_gap_EN.png"
+pdf=str(HERE / "Figure2_optimality_gap_EN.pdf")
+png=str(HERE / "Figure2_optimality_gap_EN.png")
 plt.tight_layout(); plt.savefig(pdf,bbox_inches="tight"); plt.savefig(png,dpi=300,bbox_inches="tight"); plt.close()
 import os
 print("Figure2:",round(os.path.getsize(pdf)/1024,1),"kB PDF |",round(os.path.getsize(png)/1024,1),"kB PNG")
