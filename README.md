@@ -50,4 +50,4 @@ The scripts resolve every path relative to their own location, so they run from 
 
 ## Licence
 Code under Apache 2.0, see LICENSE. The WorldPop raster (`geo/pl_pop_1km.tif`) is CC-BY 4.0 and is shipped here. The GADM boundary is not shipped, it is fetched by `fetch_gadm.py`, and the GADM licence allows academic map-making but not redistribution. Coordinates (`loc28.json`) are CC BY 4.0.
-The published version of record will be archived with a citable DOI (Zenodo).
+The published version of record is archived with a citable DOI: 10.5281/zenodo.20788758
