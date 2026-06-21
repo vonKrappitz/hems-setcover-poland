@@ -49,4 +49,16 @@ The scripts resolve every path relative to their own location, so they run from 
 
 ## Licence
 Code under Apache 2.0, see LICENSE. The WorldPop raster (`geo/pl_pop_1km.tif`) is CC-BY 4.0 and is shipped here. The GADM boundary is not shipped, it is fetched by `fetch_gadm.py`, and the GADM licence allows academic map-making but not redistribution. Coordinates (`loc28.json`) are CC BY 4.0.
-The published version of record is archived with a citable DOI: 10.5281/zenodo.20788758
+
+## How to cite
+
+If you use this software, please cite both the paper and the software record.
+
+Paper:
+
+> Kasperek, M. M. (2026). Where to base air rescue: a set-cover facility-location model for nationwide 30-minute HEMS coverage in Poland. (preprint).
+
+Software:
+
+> Kasperek, M. M. (2026). *hems-setcover-poland*
+> (version 1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.20788758
