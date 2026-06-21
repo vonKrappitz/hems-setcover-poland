@@ -50,5 +50,5 @@ local copy if needed (boundary and raster are under `geo/`).
 - Sensitivity: 99.03 per cent surface coverage under the realistic scenario.
 
 ## Licence
-Code: MIT. Data: as per GADM and WorldPop terms. Coordinates (`loc28.json`): CC BY 4.0.
+Code: Apache 2.0. Data: as per GADM and WorldPop terms. Coordinates (`loc28.json`): CC BY 4.0.
 The published version of record will be archived with a citable DOI (Zenodo).
