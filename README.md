@@ -1,4 +1,4 @@
-# Reproducibility package — "Where to base air rescue"
+# Reproducibility package - "Where to base air rescue"
 Author: Maciej Marcin Kasperek (ORCID 0009-0008-7419-0851).
 This package reproduces every quantitative result, both figures and the coverage and
 optimality figures reported in the manuscript, from public, operator-independent inputs.
